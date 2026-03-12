@@ -48,73 +48,40 @@ MLflow Experiments | http://localhost:5000 |
 
 # ⚙️ Architecture Overview
 
-```
+![Architecture](screenshots/architecture.png)
 
 ```
-                +-------------------+
-                |   React Frontend  |
-                |   Dashboards      |
-                +---------+---------+
-                          |
-                          v
-                +-------------------+
-                |  FastAPI Backend  |
-                |   API Gateway     |
-                +---------+---------+
-                          |
-   +----------------------+----------------------+
-   |                                             |
-   v                                             v
-```
-
-+-------------+                            +----------------+
-| Kafka       |                            | Airflow        |
-| Streaming   |                            | Pipelines      |
-+------+------+                            +--------+-------+
-|                                            |
-v                                            v
-+-------------+                           +----------------+
-| Feature     |                           | ML Models      |
-| Store       |                           | Training       |
-| (Feast)     |                           +--------+-------+
-+------+------+
-|
-v
+                       +-------------------+
+                       |   React Frontend  |
+                       |   Dashboards      |
+                       +---------+---------+
+                                 |
+                                 v
+                       +-------------------+
+                       |  FastAPI Backend  |
+                       |   API Gateway     |
+                       +---------+---------+
+                                 |
+          +----------------------+-----------------------+
+          |                                              |
+          v                                              v
+   +-------------+                               +----------------+
+   | Kafka       |                               | Airflow        |
+   | Streaming   |                               | Pipelines      |
+   +------+------+                               +--------+-------+
+          |                                               |
+          v                                               v
+   +-------------+                               +----------------+
+   | Feature     |                               | ML Models      |
+   | Store       |                               | Training       |
+   | (Feast)     |                               +--------+-------+
+   +------+------+
+          |
+          v
 +---------------------+
 | Distributed Spark   |
 | Analytics Engine    |
 +---------------------+
-
-```
-
----
-
-# 🎬 Animated Architecture
-
-```
-
-Data Source
-│
-▼
-Kafka Producer
-│
-▼
-Kafka Stream
-│
-▼
-Airflow Pipeline
-│
-▼
-Feature Store
-│
-▼
-ML Training
-│
-▼
-Model Monitoring
-│
-▼
-Real-Time Dashboard
 
 ```
 
@@ -142,42 +109,27 @@ Benchmarks executed using:
 
 ### Platform Dashboard
 
-```
+![Dashboard Screenshot](screenshots/dashboard.png)
 
-[ Dashboard Screenshot Here ]
-
-```
 
 ### Dataset Upload Interface
 
-```
+![Upload UI Screenshot](screenshots/upload.png)
 
-[ Upload UI Screenshot Here ]
-
-```
 
 ### ML Monitoring Dashboard
 
-```
+![Monitoring Screenshot](screenshots/monitoring.png)
 
-[ Monitoring Screenshot Here ]
-
-```
 
 ### Airflow Pipeline View
 
-```
+![Airflow DAG Screenshot](screenshots/airflow.png)
 
-[ Airflow DAG Screenshot Here ]
-
-```
-
----
 
 # 🏗️ Project Structure
 
 ```
-
 InsightFlow – Real-Time AI Data Platform
 │
 ├── backend
@@ -258,9 +210,7 @@ InsightFlow – Real-Time AI Data Platform
 ### Start all services
 
 ```
-
 docker compose up --build
-
 ```
 
 ---
@@ -269,30 +219,22 @@ docker compose up --build
 
 Frontend Dashboard  
 ```
-
 [http://localhost:5173](http://localhost:5173)
-
 ```
 
 Backend API  
 ```
-
 [http://localhost:8000](http://localhost:8000)
-
 ```
 
 Airflow Pipelines  
 ```
-
 [http://localhost:8080](http://localhost:8080)
-
 ```
 
 MLflow Experiments  
 ```
-
 [http://localhost:5000](http://localhost:5000)
-
 ```
 
 ---
@@ -355,4 +297,5 @@ These are core skills used in modern data platforms at companies like Netflix, U
 # ⭐ If you find this project useful
 
 Give the repository a **star** ⭐ and feel free to contribute.
-```
+
+---
